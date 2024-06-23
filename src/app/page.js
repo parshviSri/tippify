@@ -6,17 +6,26 @@ import Tip from "./tip";
 
 export default function Home() {
   const [walletAddress, setWalletAddress] = useState(null);
-
+  const [newUser, setNewUser] = useState(false)
   return (
     <div>
       <h1>Tippify</h1>
-      <WalletConnection setWalletAddress={setWalletAddress} />
+      {walletAddress && <h2>Welcome - {walletAddress}</h2>}
+      {!walletAddress && (
+        <WalletConnection setWalletAddress={setWalletAddress} />
+      )}
       {walletAddress && (
         <>
-          <Profile walletAddress={walletAddress} />
           <Tip walletAddress={walletAddress} />
         </>
       )}
+      {newUser && <Profile walletAddress={walletAddress}/>}
+      <button
+        onClick={()=> setNewUser(true)}
+        className="w-30 p-2 bg-gray-600 text-white rounded-md"
+      >
+        Create Profile
+      </button>
     </div>
   );
 }

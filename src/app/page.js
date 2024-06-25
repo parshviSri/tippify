@@ -3,11 +3,11 @@ import React, { useState } from "react";
 import WalletConnection from "./wallet";
 import Profile from "./profile";
 import Tip from "./tip";
-import Dashboard from "./dashboard";
+import dashboard from "./dashboard";
 
 export default function Home() {
   const [walletAddress, setWalletAddress] = useState(null);
-  const [newUser, setNewUser] = useState(false)
+  const [newUser, setNewUser] = useState(false);
   return (
     // <div  className="min-h-screen bg-gradient-to-r from-blue-900 via-purple-900 to-pink-900 text-white">
     //   <h1>Tippify</h1>
@@ -29,7 +29,7 @@ export default function Home() {
     //   </button>
     // </div>
     <div className="min-h-screen bg-gradient-to-r from-blue-900 via-purple-900 to-pink-900 text-white">
-      <Dashboard />
+      <dashboard />
     </div>
   );
 }
